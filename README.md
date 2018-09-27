@@ -20,8 +20,9 @@ const featuredImageUrl = fi(webPageUrl);
 
 
 ## Node version
-Require NodeJS >= v7.0
-Tested with v7.0, v7.6 and v8.9
+Require NodeJS >= v7.6
+(_should_ work starting with v7.0 with the `--harmony` flag)
+Tested with v7.6 and v8.9
 
 ## License
 
