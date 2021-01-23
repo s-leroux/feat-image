@@ -1,7 +1,7 @@
-getpro
-======
+feat-image
+==========
 
-A collection of object--and only objects--utilities.
+Load the featured images from a web page.
 
 
 [![Build Status](https://travis-ci.org/s-leroux/feat-image.png?branch=master)](https://travis-ci.org/s-leroux/feat-image)
@@ -15,9 +15,11 @@ A collection of object--and only objects--utilities.
 
 ```
 const fi = require("feat-image");
-const featuredImageUrl = fi(webPageUrl);
+const imageUrls = await fi(webPageUrl);
 ```
 
+Load a web page and extract the URL for the featured images based on the
+`meta` `og:image` and `twitter:image` tags. Duplicates are removed.
 
 ## Node version
 Require NodeJS >= v7.6
