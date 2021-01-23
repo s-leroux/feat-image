@@ -22,9 +22,8 @@ Load a web page and extract the URL for the featured images based on the
 `meta` `og:image` and `twitter:image` tags. Duplicates are removed.
 
 ## Node version
-Require NodeJS >= v7.6
-(_should_ work starting with v7.0 with the `--harmony` flag)
-Tested with v7.6 and v8.9
+Require NodeJS >= v10.0
+Tested with v10.0 and v14.15
 
 ## License
 
