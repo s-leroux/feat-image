@@ -30,6 +30,13 @@ describe("feat-image", () => {
       ]));
   });
 
+  it("should parse title", () => {
+    return fi.about(`http://${config.server}/title.html`)
+      .then((about) => assert.deepEqual(about.title, [
+        "My page title",
+      ]));
+  });
+
   it("should parse og:title and twitter:title", () => {
     return fi.about(`http://${config.server}/javascript-has-a-new-license`)
       .then((about) => assert.deepEqual(about.title, [
