@@ -37,6 +37,14 @@ describe("feat-image", () => {
       ]));
   });
 
+  it("should parse twitter:title", () => {
+    return fi.about(`http://${config.server}/twitter:title.html`)
+      .then((about) => assert.deepEqual(about.title, [
+        "My page title (name)",
+        "My page title (property)",
+      ]));
+  });
+
   it("should parse og:title and twitter:title", () => {
     return fi.about(`http://${config.server}/javascript-has-a-new-license`)
       .then((about) => assert.deepEqual(about.title, [
