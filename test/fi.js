@@ -30,6 +30,13 @@ describe("feat-image", () => {
       ]));
   });
 
+  it("should parse og:title and twitter:title", () => {
+    return fi.about(`http://${config.server}/javascript-has-a-new-license`)
+      .then((about) => assert.deepEqual(about.title, [
+        "The JavaScript Specification has a New License – Mozilla Hacks - the Web developer blog",
+      ]));
+  });
+
   it("should parse og:description and twitter:description", () => {
     return fi.about(`http://${config.server}/javascript-has-a-new-license`)
       .then((about) => assert.deepEqual(about.description, [
