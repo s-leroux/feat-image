@@ -1,7 +1,7 @@
 feat-image
 ==========
 
-Load the featured images from a web page.
+Load the featured images and other metadata from a web page.
 
 
 [![Build Status](https://github.com/s-leroux/feat-image/actions/workflows/npm-test.yml/badge.svg)](https://github.com/s-leroux/feat-image/actions/workflows/npm-test.yml)
@@ -11,7 +11,7 @@ Load the featured images from a web page.
     npm install --save feat-image
 
 
-## Usage
+## Basic usage
 
 ```
 const fi = require("feat-image");
@@ -20,6 +20,52 @@ const imageUrls = await fi(webPageUrl);
 
 Load a web page and extract the URL for the featured images based on the
 `meta` `og:image` and `twitter:image` tags. Duplicates are removed.
+
+## Advanced usage
+
+```
+const fi = require("feat-image");
+const about = await fi.about(webPageUrl);
+
+console.log(url", about.url);
+console.log("title", about.title);
+console.log("description", about.description);
+console.log("feature images", about.fi);
+```
+
+Load a web page and extract metadata based on open graph and twitter card data.
+All attributes are returned as an array with duplicates removed.
+
+## Example
+
+```
+const fi = require("feat-image");
+
+const about = await fi.about("https://en.wikipedia.org/wiki/Ada_Lovelace");
+console.dir(about);
+{
+  fi: [
+    {
+      href: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Ada_Byron_daguerreotype_by_Antoine_Claudet_1843_or_1850.jpg',
+      width: 1200,
+      height: 1651
+    },
+    {
+      href: 'https://upload.wikimedia.org/wikipedia/commons/0/0b/Ada_Byron_daguerreotype_by_Antoine_Claudet_1843_or_1850.jpg',
+      width: 800,
+      height: 1101
+    },
+    {
+      href: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Ada_Byron_daguerreotype_by_Antoine_Claudet_1843_or_1850.jpg/640px-Ada_Byron_daguerreotype_by_Antoine_Claudet_1843_or_1850.jpg',
+      width: 640,
+      height: 880
+    }
+  ],
+  url: [ 'https://en.wikipedia.org/wiki/Ada_Lovelace' ],
+  title: [ 'Ada Lovelace - Wikipedia' ],
+  description: []
+}
+```
 
 ## Node version
 Require NodeJS >= v12.0
