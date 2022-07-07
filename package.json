@@ -1,6 +1,6 @@
 {
   "name": "feat-image",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Find the featured image URL from a web page",
   "main": "index.js",
   "scripts": {
