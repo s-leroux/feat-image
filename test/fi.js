@@ -4,6 +4,20 @@ const fi = require('../index.js');
 const config = require('./server/config.js');
 
 describe("feat-image", () => {
+  it("should parse canonical", () => {
+    return fi.about(`http://${config.server}/canonical.html`)
+      .then((about) => assert.deepEqual(about.url, [
+        "https://example.com/canonical",
+      ]));
+  });
+
+  it("should parse og:url", () => {
+    return fi.about(`http://${config.server}/og:url.html`)
+      .then((about) => assert.deepEqual(about.url, [
+        "https://example.com/canonical",
+      ]));
+  });
+
   it("should find og:image", () => {
     return fi(`http://${config.server}/nodejs`)
       .then((imageurl) => assert.deepEqual(imageurl, ["https://nodejs.org/static/images/logo-hexagon-card.png"]));
