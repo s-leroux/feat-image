@@ -29,7 +29,7 @@ Tested with v12.0 and v14.15
 
 (The MIT License)
 
-Copyright (c) 2018 [Sylvain Leroux](mailto:sylvain@chicoree.fr)
+Copyright (c) 2018-2022 [Sylvain Leroux](mailto:sylvain@chicoree.fr)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
