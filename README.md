@@ -4,7 +4,7 @@ feat-image
 Load the featured images from a web page.
 
 
-[![Build Status](https://travis-ci.org/s-leroux/feat-image.png?branch=master)](https://travis-ci.org/s-leroux/feat-image)
+[![Build Status](https://github.com/s-leroux/feat-image/actions/workflows/npm-test.yml/badge.svg)](https://github.com/s-leroux/feat-image/actions/workflows/npm-test.yml)
 
 ## Installation
 
