@@ -30,5 +30,12 @@ describe("feat-image", () => {
       ]));
   });
 
+  it("should parse og:description and twitter:description", () => {
+    return fi.about(`http://${config.server}/javascript-has-a-new-license`)
+      .then((about) => assert.deepEqual(about.description, [
+        "As part of our work to ensure a free and open web, we've been working with Ecma International to write a License inspired by the W3C Document.",
+      ]));
+  });
+
 
 });
