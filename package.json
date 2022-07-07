@@ -25,7 +25,7 @@
     "mocha": "^8.2.1"
   },
   "dependencies": {
-    "getpro": "^1.0.3",
+    "getpro": "^1.1.0-2",
     "htmlparser2": "^3.9.2"
   }
 }
