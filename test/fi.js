@@ -75,5 +75,33 @@ describe("feat-image", () => {
       ]));
   });
 
+  describe("similarity", () => {
+
+    it("self-similarity should equal 1.0", async () => {
+      const about = await fi.about(`http://${config.server}/javascript-has-a-new-license`);
+      const s = about.similarTo(about);
+      assert.isAbove(s, 0.999);
+    });
+
+    it("similarity should return the best match", async () => {
+      const about = await fi.about(`http://${config.server}/javascript-has-a-new-license`);
+      const s = about.similarTo({
+        description: [
+          "We've been working with Ecma International to write a License inspired by the W3C Document.",
+          "As part of our work to ensure a free and open web, we've been working with Ecma International to write a License inspired by the W3C Document.",
+          "We've been working with Ecma International to write a License.",
+        ],
+      });
+      assert.isAbove(s, 0.999);
+    });
+
+    it("similarity with nothing should return NaN", async () => {
+      const about = await fi.about(`http://${config.server}/javascript-has-a-new-license`);
+      const s = about.similarTo({});
+      assert.isNaN(s);
+    });
+
+
+  });
 
 });

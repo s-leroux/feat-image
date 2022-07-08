@@ -48,7 +48,6 @@ describe("utils", () => {
       ];
       for (const [str1, str2] of strings) {
         const s = utils.similarity(str1, str2);
-        console.log(str1, str2, s);
         assert.isAbove(s, 0.5, `(${str1}, ${str2})`);
         assert.isBelow(s, 1.0, `(${str1}, ${str2})`);
       }
