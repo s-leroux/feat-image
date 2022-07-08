@@ -7,4 +7,4 @@ module.exports = {
   port: TEST_PORT,
   host: TEST_HOST,
   server: `${TEST_HOST}:${TEST_PORT}`,
-}
+};

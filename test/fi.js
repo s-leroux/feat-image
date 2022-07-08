@@ -1,7 +1,9 @@
-const { assert } = require('chai');
-const fi = require('../index.js');
+"use strict";
 
-const config = require('./server/config.js');
+const { assert } = require("chai");
+const fi = require("../index.js");
+
+const config = require("./server/config.js");
 
 describe("feat-image", () => {
   it("should parse canonical", () => {
