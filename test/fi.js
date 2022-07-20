@@ -47,6 +47,13 @@ describe("feat-image", () => {
   });
 
   it("should parse title", () => {
+    return fi.about(`http://${config.server}/git-ls-files`)
+      .then((about) => assert.deepEqual(about.title, [
+        "Git - git-ls-files Documentation",
+      ]));
+  });
+
+  it("should parse meta title", () => {
     return fi.about(`http://${config.server}/title.html`)
       .then((about) => assert.deepEqual(about.title, [
         "My page title",
@@ -65,6 +72,7 @@ describe("feat-image", () => {
     return fi.about(`http://${config.server}/javascript-has-a-new-license`)
       .then((about) => assert.deepEqual(about.title, [
         "The JavaScript Specification has a New License – Mozilla Hacks - the Web developer blog",
+        "The JavaScript Specification has a New License - Mozilla Hacks - the Web developer blog", // not the same dash;)
       ]));
   });
 
