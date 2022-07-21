@@ -39,17 +39,29 @@ describe("utils", () => {
       }
     });
 
-    it("close string should have a simiarity > 0.5", () => {
+    it("close strings should have a simiarity > 0.5", () => {
       const strings = [
         ["Hello", "Hello world"],
         ["The art of Code", "The art of Code - JS edition"],
         ["Web Assembly - Wikipedia", "Web Assembly - MDN"],
         ["This article talks about JS", "This article does not talk about JS"],
+        ["Git - git-ls-files Documentation", "Git - git-ls-files Documentation"],
       ];
       for (const [str1, str2] of strings) {
         const s = utils.similarity(str1, str2);
-        assert.isAbove(s, 0.5, `(${str1}, ${str2})`);
-        assert.isBelow(s, 1.0, `(${str1}, ${str2})`);
+        assert.isAbove(s, 0.5, `(${str1}, ${str2}) -> ${s}`);
+        assert.isBelow(s, 1.0, `(${str1}, ${str2}) -> ${s}`);
+      }
+    });
+
+    it("different strings should have a simiarity < 0.5", () => {
+      const strings = [
+        ["Git - git-ls-files Documentation", "The git-scm.com domain is for sale"],
+      ];
+      for (const [str1, str2] of strings) {
+        const s = utils.similarity(str1, str2);
+        assert.isAbove(s, 0.0, `(${str1}, ${str2}) -> ${s}`);
+        assert.isBelow(s, 0.5, `(${str1}, ${str2}) -> ${s}`);
       }
     });
 
