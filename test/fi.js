@@ -83,7 +83,7 @@ describe("feat-image", () => {
       ]));
   });
 
-  describe("similarity", () => {
+  describe("similarTo", () => {
 
     it("self-similarity should equal 1.0", async () => {
       const about = await fi.about(`http://${config.server}/javascript-has-a-new-license`);
@@ -107,6 +107,13 @@ describe("feat-image", () => {
       const about = await fi.about(`http://${config.server}/javascript-has-a-new-license`);
       const s = about.similarTo({});
       assert.isNaN(s);
+    });
+
+    it("should only consider the title if no description is given", async () => {
+      const about = await fi.about(`http://${config.server}/git-ls-files`);
+      const comp = { title: [ 'The git-scm.com domain is for sale' ] };
+      const s = about.similarTo(comp);
+      assert.isBelow(s, 0.5);
     });
 
 
